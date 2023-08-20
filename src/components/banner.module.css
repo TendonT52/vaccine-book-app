@@ -1,0 +1,33 @@
+.banner {
+    position: relative;
+    display: block;
+    padding: 5px;
+    margin: 0;
+    width: 100vw;
+    height: 70vh;
+}
+
+.bannerText {
+    position: relative;
+    z-index: 10;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(163, 226, 248, 0.5);
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.priviledgeText {
+    top: 100px;
+    position: relative;
+    z-index: 20;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(250, 166, 166, 0.5);
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
