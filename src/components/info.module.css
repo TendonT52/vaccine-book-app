@@ -1,14 +1,10 @@
 .infoContainer {
     padding: 20px;
-    margin: 20px;
-    width: 80%;
-    height: auto;
+    margin-top: 150px;
+    margin-bottom: 80px;
+    width: 450px;
+    height: 500px;
     border-radius: 5px;
     box-shadow: 0 0 30px rgba(15, 3, 255, 0.5);
     background: rgb(162, 245, 212);
-    color: rgb(0, 0, 0);
-}
-
-.infoData {
-    margin-left: 20px;
 }

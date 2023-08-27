@@ -1,22 +1,14 @@
 import styles from './info.module.css'
+import Image from 'next/image'
 
-export default function Info() {
+export default function Info({hospitalName, hospitalImage}: {hospitalName: string, hospitalImage: string}) {
     return (
-        <div style={{display: 'flex', justifyContent: 'center'}}>
-            <div className={styles.infoContainer}>
-                <h2> สิ่งที่ควรรู้ก่อนฉีดวัคซีน ฉบับพื้นฐาน </h2>
-                <br></br>
-                <div className={styles.infoData}>
-                    <ol className={styles.topic}>
-                        <li> คืนก่อนฉีดวัคซีนควรพักผ่อนให้เพียงพอ </li>
-                        <li> ศึกษารายละเอียดเกี่ยวกับวัคซีน รวมไปถึงผลกระทบต่าง ๆ ที่อาจเกิดขึ้นหลังฉีดวัคซีน </li>
-                        <li> กรณีมีโรคประจำตัว โปรดแจ้งพนักงานก่อนทำการฉีดวัคซีนทุกครั้ง </li>
-                        <li> หลังฉีดวัคซีน ควรพักผ่อนให้เพียงพอ และดื่มน้ำมากๆ </li>
-                        <li> หากมีอาการผิดปกติหลังฉีดวัคซีน โปรดแจ้งพนักงานทันทีผ่านสายด่วน #1234 </li>
-                    </ol>
-                    <br></br>
-                    <p> หมายเหตุ: กรณีต้องการใบรับรองการฉีดวัคซีน โปรดแจ้งเจ้าหน้าที่ ณ จุดจัดบัตรคิว</p>
-                </div>
+        <div className={styles.infoContainer}>
+            <div className='w-full h-4/6 relative'>
+                <Image src={hospitalImage} alt="Hospital Pic" objectFit='cover' fill={true} />
+            </div>
+            <div className='w-full h-2/6 flex items-center justify-center text-2xl'>
+                <h2> {hospitalName} </h2>
             </div>
         </div>
     )
