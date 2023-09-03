@@ -1,15 +1,17 @@
-import styles from './info.module.css'
+import InteractiveCard from './InteractiveCard'
 import Image from 'next/image'
 
-export default function Info({hospitalName, hospitalImage}: {hospitalName: string, hospitalImage: string}) {
+export default function Card({hospitalName, hospitalImage}: {hospitalName: string, hospitalImage: string}) {
     return (
-        <div className={styles.infoContainer}>
-            <div className='w-full h-4/6 relative'>
-                <Image src={hospitalImage} alt="Hospital Pic" objectFit='cover' fill={true} />
+        <InteractiveCard>
+            <div className='"p-5 w-96 h-80 rounded-lg"'>
+                <div className='w-full h-4/6 relative'>
+                    <Image src={hospitalImage} alt="Hospital Pic" objectFit='cover' fill={true} />
+                </div>
+                <div className='w-full h-2/6 flex items-center justify-center text-2xl'>
+                    <h2> {hospitalName} </h2>
+                </div>
             </div>
-            <div className='w-full h-2/6 flex items-center justify-center text-2xl'>
-                <h2> {hospitalName} </h2>
-            </div>
-        </div>
+        </InteractiveCard>
     )
 }
