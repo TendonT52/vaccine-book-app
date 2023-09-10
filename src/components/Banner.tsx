@@ -1,10 +1,14 @@
+'use client'
+import { useState } from 'react'
 import styles from './Banner.module.css'
 import Image from 'next/image'
 
 export default function Banner() {
+    const covers = ['/img/cover0.jpg', '/img/cover1.jpg', '/img/cover2.jpg', '/img/cover3.jpg']
+    const [index, setIndex] = useState(0)
     return (
-        <div className={styles.banner}>
-            <Image src="/img/cover.jpg" alt="cover" fill={true} objectFit='cover' />
+        <div className={styles.banner} onClick={()=>setIndex(index+1)}>
+            <Image src={covers[index%4]} alt="cover" fill={true} objectFit='cover' />
             <div className={styles.bannerText}>
                 <h1> บริการฉีดวัคซีนฟรี </h1>
                 <h2> วันนี้ - 20 ธันวาคม เวลา: 08:00 - 18:00 น. </h2>
