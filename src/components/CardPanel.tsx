@@ -1,4 +1,5 @@
 'use client'
+import Link from "next/link";
 import Card from './Info'
 import { useReducer } from "react";
 
@@ -16,6 +17,11 @@ export default function CardPanel() {
                 return state
         }
     }
+    const mockH = [
+        {hid: "001", HospitalName: "Chulalongkorn Hospital", HospitalImage: "/img/chula.jpg"},
+        {hid: "002", HospitalName: "Rajavithi Hospital", HospitalImage: "/img/rajavithi.jpg"},
+        {hid: "003", HospitalName: "Thammasat University Hospital", HospitalImage: "/img/thammasat.jpg"},
+    ]
 
     let mapReview = new Map<string, number | null>();
     mapReview.set("Chulalongkorn Hospital", 0);
@@ -26,18 +32,16 @@ export default function CardPanel() {
     return (
         <div>
             <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent:"space-around", alignContent: "space-around" }}>
-                <Card hospitalName="Chulalongkorn Hospital" hospitalImage='/img/chula.jpg'
-                    onChangeReview={(name: string, rating: number | null) => dispatchReview({type:'add', hName: name, score: rating})}
-                    reviewScore={allReviews.get("Chulalongkorn Hospital") ?? 0}
-                />
-                <Card hospitalName="Rajavithi Hospital" hospitalImage='/img/rajavithi.jpg'
-                    onChangeReview={(name: string, rating: number | null) => dispatchReview({type:'add', hName: name, score: rating})}
-                    reviewScore={allReviews.get("Rajavithi Hospital") ?? 0}
-                />
-                <Card hospitalName="Thammasat University Hospital" hospitalImage='/img/thammasat.jpg'
-                    onChangeReview={(name: string, rating: number | null) => dispatchReview({type:'add', hName: name, score: rating})}
-                    reviewScore={allReviews.get("Thammasat University Hospital") ?? 0}
-                />
+                {mockH.map((h) => (
+                    <Link key={h.hid} href={`/hospital/${h.hid}`}>
+                        <div>
+                            <Card hospitalName={h.HospitalName} hospitalImage={h.HospitalImage}
+                                onChangeReview={(name: string, rating: number | null) => dispatchReview({type:'add', hName: name, score: rating})}
+                                reviewScore={allReviews.get(h.HospitalName) ?? 0}
+                            />
+                        </div>
+                    </Link>
+                ))}
             </div>
 
             <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent:"space-around", alignContent: "space-around" }}>

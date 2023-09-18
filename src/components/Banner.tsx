@@ -8,7 +8,7 @@ export default function Banner() {
     const [index, setIndex] = useState(0)
     return (
         <div className={styles.banner} onClick={()=>setIndex(index+1)}>
-            <Image src={covers[index%4]} alt="cover" fill={true} objectFit='cover' />
+            <Image src={covers[index%4]} alt="cover" fill={true} objectFit="fill" />
             <div className={styles.bannerText}>
                 <h1> บริการฉีดวัคซีนฟรี </h1>
                 <h2> วันนี้ - 20 ธันวาคม เวลา: 08:00 - 18:00 น. </h2>
