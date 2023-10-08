@@ -1,12 +1,24 @@
 'use client'
 import InteractiveCard from './InteractiveCard'
 import Image from 'next/image'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Rating } from '@mui/material';
 
 export default function Card({hospitalName, hospitalImage, reviewScore, onChangeReview}:
     {hospitalName: string, hospitalImage: string, reviewScore: number | null, onChangeReview: (name: string, rating: number | null) => void}) {
     const [value, setValue] = useState<number | null>(0);
+
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (! mounted) {
+        return (
+            <></>
+        )
+    }
+
     return (
         <InteractiveCard>
             <div className='p-5 w-96 h-80 rounded-lg'>
