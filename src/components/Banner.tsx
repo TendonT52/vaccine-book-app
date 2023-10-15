@@ -1,16 +1,23 @@
 'use client'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import styles from './Banner.module.css'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 
 export default function Banner() {
     const router = useRouter()
     const covers = ['/img/cover0.jpg', '/img/cover1.jpg', '/img/cover2.jpg', '/img/cover3.jpg']
     const [index, setIndex] = useState(0)
+    const {data: session} = useSession()
+
     return (
         <div className={styles.banner} onClick={()=>setIndex(index+1)}>
             <Image src={covers[index%4]} alt="cover" fill={true} objectFit="fill" />
+            {
+                session? <div className='absolute z-30 top-15 right-10 text-l p-5 bg-teal-200'> สวัสดี, {session.user?.name} </div>
+                : null
+            }
             <div className={styles.bannerText}>
                 <h1> บริการฉีดวัคซีนฟรี </h1>
                 <h2> วันนี้ - 20 ธันวาคม เวลา: 08:00 - 18:00 น. </h2>

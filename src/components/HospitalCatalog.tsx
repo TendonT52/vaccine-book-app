@@ -4,7 +4,7 @@ import Card from './Info'
 import { useReducer } from "react";
 import { GetHospitalsResponse } from "@/libs/interface";
 
-export default async function CardPanel({getHospitals}: {getHospitals: Promise<GetHospitalsResponse>}) {
+export default async function HospitalCatalog({getHospitals}: {getHospitals: Promise<GetHospitalsResponse>}) {
     const ratingReducer = (state: Map<string, number | null>, action: {type: string, hName: string, score: number | null}) => {
         var m = new Map(state);
         switch (action.type) {
