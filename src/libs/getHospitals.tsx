@@ -1,9 +1,9 @@
 import { GetHospitalsResponse } from "./interface"
 
 export default async function getHospitals(): Promise<GetHospitalsResponse> {
-    await new Promise((resolve) => setTimeout(resolve, 5000))
+    // await new Promise((resolve) => setTimeout(resolve, 5000))
 
-    const response = await fetch('http://localhost:5001/api/v1/hospitals')
+    const response = await fetch('http://localhost:5001/api/v1/hospitals', {next: {tags: ['hospitals']}})
     if (!response.ok) {
         throw new Error("ERROR: Cannot get hospitals data.")
     }

@@ -5,7 +5,7 @@ import { cancelBooking } from "@/redux/features/bookSlice"
 
 export default function MyBooking() {
     const dispatch = useDispatch<AppDispatch>()
-    const bookItem = useAppSelector((state) => state.bookSlice.item)
+    const bookItem = useAppSelector((state) => state.reduxPersistReducer.bookSlice.item)
     if (bookItem.firstName === "" && bookItem.lastName === "" && bookItem.id === "" && bookItem.hospital === "" && bookItem.reserveDate === "") {
         return (
             <div className="m-20">
