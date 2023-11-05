@@ -32,7 +32,7 @@ export default async function HospitalCatalog({getHospitals}: {getHospitals: Pro
                     <Link key={h.id} href={`/hospital/${h.id}`}>
                         <div>
                             <Card hospitalName={h.name} hospitalImage={h.picture}
-                                onChangeReview={(name: string, rating: number | null) => dispatchReview({type:'add', hName: name, score: rating})}
+                                // onChangeReview={(name: string, rating: number | null) => dispatchReview({type:'add', hName: name, score: rating})}
                                 reviewScore={allReviews.get(h.name) ?? 0}
                             />
                         </div>

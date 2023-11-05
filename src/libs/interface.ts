@@ -2,12 +2,12 @@ export interface GetHospitalsResponse {
     count: number,
     data: Hospital[],
     pagination: any,
-    sucess: boolean,
+    success: boolean,
 }
 
 export interface GetHospitalResponse {
     data: Hospital,
-    sucess: boolean,
+    success: boolean,
 }
 
 export interface Hospital {
