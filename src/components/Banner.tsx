@@ -30,7 +30,7 @@ export default function Banner() {
             </div>
 
             <div className="absolute bottom-0 right-0 h-36 w-60">
-                <button className="bg-pink-200 z-20"
+                <button data-test-id="buttonHospital" className="bg-pink-200 z-20"
                 onClick={(e) => {e.stopPropagation(); router.push('/hospital')}}>
                     คลิกที่นี่ เพื่อดูรายชื่อโรงพยาบาล
                 </button>
